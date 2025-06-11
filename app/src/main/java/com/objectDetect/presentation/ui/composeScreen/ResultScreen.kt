@@ -90,12 +90,12 @@ fun ResultScreen(
 
     // Trigger detection when bitmap is loaded
     LaunchedEffect(bitmap) {
-        if (bitmap != null && viewModel.detectedObjects.value.isEmpty()) {
+        if (bitmap != null) {
             viewModel.detectObjects(bitmap)
         }
     }
 
-    // Observe detected objects and output image base64
+    // Observe loading and output image base64
     val loading by viewModel.loading.collectAsState()
 
     // Observe output image base64 from ViewModel

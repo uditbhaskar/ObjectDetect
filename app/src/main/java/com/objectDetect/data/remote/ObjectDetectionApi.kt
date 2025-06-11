@@ -1,6 +1,10 @@
 package com.objectDetect.data.remote
 
 import android.graphics.Bitmap
+import com.objectDetect.core.model.RoboflowImageInput
+import com.objectDetect.core.model.RoboflowInputs
+import com.objectDetect.core.model.RoboflowRequest
+import com.objectDetect.core.model.SimpleWorkflowOutputsResponse
 import com.objectDetect.util.bitmapToBase64
 import com.objectDetect.util.resizeBitmapToMax
 import io.ktor.client.HttpClient
@@ -21,7 +25,7 @@ interface ObjectDetectionApi {
     /**
      * Sends the bitmap to the remote API and returns the workflow outputs response.
      */
-    suspend fun detectObjectsRaw(bitmap: Bitmap): WorkflowOutputsResponse
+    suspend fun detectObjectsRaw(bitmap: Bitmap): SimpleWorkflowOutputsResponse
 }
 /**
  * Ktor-based implementation of [ObjectDetectionApi] for calling the Roboflow workflow endpoint.
@@ -33,7 +37,7 @@ class KtorObjectDetectionApi(
     private val httpClient: HttpClient
 ) : ObjectDetectionApi {
 
-    override suspend fun detectObjectsRaw(bitmap: Bitmap): WorkflowOutputsResponse{
+    override suspend fun detectObjectsRaw(bitmap: Bitmap): SimpleWorkflowOutputsResponse {
         val resizedBitmap = resizeBitmapToMax(bitmap)
         val base64Image = bitmapToBase64(resizedBitmap)
 
@@ -46,14 +50,15 @@ class KtorObjectDetectionApi(
 
         val apiUrl = "https://serverless.roboflow.com/infer/workflows/objectdetect-1phvw/detect-count-and-visualize"
 
-        // Make the POST request
         val response: HttpResponse = httpClient.post(apiUrl) {
             contentType(ContentType.Application.Json)
             setBody(requestBody)
         }
 
         val jsonString = response.bodyAsText()
-        return Json { ignoreUnknownKeys = true }
-            .decodeFromString<WorkflowOutputsResponse>(jsonString)
+        return json.decodeFromString<SimpleWorkflowOutputsResponse>(jsonString)
+    }
+    private companion object {
+        val json = Json { ignoreUnknownKeys = true }
     }
 }
