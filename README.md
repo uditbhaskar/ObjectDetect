@@ -6,7 +6,7 @@ ObjectDetect is a modern Android app that lets users select an image from their 
 
 ## ✨ Features
 
-- Select a smaller resolution photof from gallery.
+- Select a photo from gallery.
 - Cloud object detection via Roboflow workflow API.
 - View both original and detected images side by side.
 - Full-screen image viewing with pinch-to-zoom and pan support.
