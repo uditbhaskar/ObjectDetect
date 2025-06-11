@@ -15,6 +15,11 @@ import androidx.compose.ui.Modifier
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
+/**
+ * Composable screen for selecting an image from the gallery and navigating to the next screen.
+ *
+ * @author udit
+ */
 @Composable
 fun OnboardingScreenRoot(
     onNavigateNext: (String) -> Unit

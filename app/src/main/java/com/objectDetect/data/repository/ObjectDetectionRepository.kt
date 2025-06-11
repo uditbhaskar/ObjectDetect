@@ -6,9 +6,19 @@ import com.objectDetect.core.model.DetectedObject
 import com.objectDetect.data.remote.ObjectDetectionApi
 import com.objectDetect.data.remote.WorkflowOutputsResponse
 
+/**
+ * Repository for performing object detection using the remote API.
+ *
+ * @author udit
+ */
 class ObjectDetectionRepository(
     private val api: ObjectDetectionApi
 ) {
+    /**
+     * Detects objects in the given bitmap and returns the results and processed image base64.
+     *
+     * @author udit
+     */
     suspend fun detectObjects(bitmap: Bitmap): Pair<List<DetectedObject>, String?> {
         val response: WorkflowOutputsResponse = api.detectObjectsRaw(bitmap)
         val workflow = response.outputs.firstOrNull()

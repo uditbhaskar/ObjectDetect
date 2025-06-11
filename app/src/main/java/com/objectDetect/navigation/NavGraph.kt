@@ -1,12 +1,10 @@
 package com.objectDetect.navigation
 
-import java.net.URLEncoder
-import java.nio.charset.StandardCharsets
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.objectDetect.presentation.ui.composeScreen.OnboardingScreenRoot
 import com.objectDetect.presentation.ui.composeScreen.ResultScreen

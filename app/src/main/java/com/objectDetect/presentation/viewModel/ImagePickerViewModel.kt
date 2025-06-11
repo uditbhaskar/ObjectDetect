@@ -1,17 +1,21 @@
 package com.objectDetect.presentation.viewModel
 
+import android.graphics.Bitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.objectDetect.core.model.DetectedObject
 import com.objectDetect.domain.usecase.DetectObjectsUseCase
-import com.objectDetect.domain.usecase.SaveSelectedImageUriUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel for running object detection and exposing detection results and processed image state.
+ *
+ * @author udit
+ */
 class ImagePickerViewModel(
-    private val saveSelectedImageUriUseCase: SaveSelectedImageUriUseCase,
     private val detectObjectsUseCase: DetectObjectsUseCase
 ) : ViewModel() {
 
@@ -27,7 +31,12 @@ class ImagePickerViewModel(
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error.asStateFlow()
 
-    fun detectObjects(bitmap: android.graphics.Bitmap) {
+    /**
+     * Runs object detection on the given bitmap and updates state with results and processed image.
+     *
+     * @author udit
+     */
+    fun detectObjects(bitmap: Bitmap) {
         viewModelScope.launch {
             _loading.value = true
             _error.value = null
