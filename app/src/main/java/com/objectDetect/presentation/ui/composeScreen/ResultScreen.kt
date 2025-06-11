@@ -98,6 +98,9 @@ fun ResultScreen(
     // Observe loading and output image base64
     val loading by viewModel.loading.collectAsState()
 
+    // Observe loading and output image base64
+    val error by viewModel.error.collectAsState()
+
     // Observe output image base64 from ViewModel
     val outputImageBase64 by viewModel.outputImageBase64.collectAsState()
 
@@ -139,7 +142,9 @@ fun ResultScreen(
                                 .clip(RoundedCornerShape(12.dp))
                                 .clickable { fullScreenImage = it }
                         )
-                    } ?: Text("No image loaded.", color = Color.Red)
+                    } ?: Text("No image loaded.", color = Color.Red).run {
+                        println(error.toString())
+                    }
                 }
             }
 
