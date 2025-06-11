@@ -9,6 +9,7 @@ import androidx.navigation.navArgument
 import com.objectDetect.presentation.ui.composeScreen.OnboardingScreenRoot
 import com.objectDetect.presentation.ui.composeScreen.ResultScreen
 import com.objectDetect.util.AppConstants
+import kotlinx.coroutines.Dispatchers
 
 /**
  * Sets up the app's navigation graph with onboarding and home destinations.
@@ -31,7 +32,8 @@ fun AppNavGraph(navController: NavHostController) {
             val imageUri = backStackEntry.arguments?.getString("imageUri")
             ResultScreen(
                 imageUri = imageUri,
-                onBackToMain = { navController.popBackStack(AppConstants.NAV_ONBOARD, inclusive = false) }
+                onBackToMain = { navController.popBackStack(AppConstants.NAV_ONBOARD, inclusive = false) },
+                dispatcher =  Dispatchers.IO
             )
         }
     }
