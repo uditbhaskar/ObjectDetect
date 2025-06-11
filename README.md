@@ -15,6 +15,11 @@ ObjectDetect is a modern Android app that lets users select an image from their 
 
 ---
 
+## 📹 Demo
+https://github.com/user-attachments/assets/772ca950-f742-4f55-b264-63f53444c7fd
+
+---
+
 ## 🏗️ Architecture
 
 - **Jetpack Compose** for UI
