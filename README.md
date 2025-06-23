@@ -1,12 +1,12 @@
 # ObjectDetect
 
-ObjectDetect is a modern Android app that lets users select an image from their gallery and performs cloud-based object detection using a Roboflow workflow. The app displays both the original and processed images (with bounding boxes), supports full-screen viewing with zoom/pan, and is built with Jetpack Compose, Ktor, and Koin using Clean Architecture.
+ObjectDetect is a modern Android app that lets users select an image from their gallery and perform cloud-based object detection using a Roboflow workflow. The app displays both the original and processed images (with bounding boxes), supports full-screen viewing with zoom and pan, and is built with Jetpack Compose, Ktor, and Koin, utilizing Clean Architecture with MVVM.
 
 ---
 
 ## ✨ Features
 
-- Select a photo from gallery.
+- Select a photo from the gallery.
 - Cloud object detection via Roboflow workflow API.
 - View both original and detected images side by side.
 - Full-screen image viewing with pinch-to-zoom and pan support.
@@ -62,7 +62,7 @@ app/
 - **API Key:**  
   Set your Roboflow API key in `KtorObjectDetectionApi`.
 - **Image Size Limit:**  
-  Images are resized to max 2048x2048 before upload.
+  Images are resized to a max of 2048x2048 before upload.
 
 ## 🧩 Dependencies
 
