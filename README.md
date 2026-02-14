@@ -4,7 +4,7 @@ ObjectDetect is a modern Android app that lets users select an image from their 
 
 ---
 
-## ✨ Features
+## Features
 
 - Select a photo from the gallery.
 - Cloud object detection via Roboflow workflow API.
@@ -20,7 +20,7 @@ https://github.com/user-attachments/assets/772ca950-f742-4f55-b264-63f53444c7fd
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 - **Jetpack Compose** for UI
 - **Koin** for Dependency Injection
@@ -29,7 +29,7 @@ https://github.com/user-attachments/assets/772ca950-f742-4f55-b264-63f53444c7fd
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 app/
@@ -42,7 +42,7 @@ app/
   util/                 # Utility functions and constants
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Clone the repo:**
    ```bash
@@ -64,7 +64,7 @@ app/
 - **Image Size Limit:**  
   Images are resized to a max of 2048x2048 before upload.
 
-## 🧩 Dependencies
+## Dependencies
 
 - [Jetpack Compose](https://developer.android.com/jetpack/compose)
 - [Koin](https://insert-koin.io/)
